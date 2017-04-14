@@ -3,7 +3,6 @@
 #include "BuildingEscape.h"
 #include "PositionReport.h"
 
-
 // Sets default values for this component's properties
 UPositionReport::UPositionReport()
 {
@@ -19,9 +18,15 @@ UPositionReport::UPositionReport()
 void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
-
+    
+    // UE_LOG(LogTemp, Warning, TEXT("POSITION REPORT REPORTING"));
+    
+    FString stringyMcFString = GetOwner()->GetName();
+    
+    FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString(); // "X:%s Y:%s Z:%s";
+    
     // Log Output Messages
-    UE_LOG(LogTemp, Warning, TEXT("POSITION REPORT REPORTING"));
+    UE_LOG(LogTemp, Warning, TEXT("%s VECTOR COORDINATES : %s"), *stringyMcFString, *ObjectPos);
 	
 }
 
